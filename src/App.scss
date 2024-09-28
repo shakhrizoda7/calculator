@@ -1,0 +1,125 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica;
+}
+
+@mixin btn($width: 62px, $height: 60px, $bg: #303136, $color: #29A8FF, $radius: 16px, $hover: #444548){
+    width: $width;
+    height: $height;
+    background-color: $bg;
+    color: $color;
+    border-radius: $radius;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+
+    &:hover{
+        background-color: $hover;
+    }
+}
+
+.App{
+    display: flex;
+    justify-content: center;
+    background: radial-gradient(circle at top right, rgba(0, 85, 255, 0.388), rgba(0, 0, 0, 0.9));
+    background-color: #000;
+    min-height: 100vh;
+    color: white;
+
+    .fatherDiv{
+        display: flex;
+        flex-direction: column;
+        gap: 78px;
+        width: 375px;
+        height: 100vh;
+        padding: 100px 34px 40px 34px;
+
+        .countedNums{
+            
+            .answerNum{
+                width: 100%;
+                height: 80px;
+
+                font-size: 35px;
+                background-color: transparent;
+                color: white;
+
+                border: none;
+                text-align: right;
+                outline: none;
+            }
+        }
+
+        .operationsNums{
+            display: flex;
+            flex-direction: column;
+
+            div{
+                display: flex;
+                gap: 20px;
+            }
+
+            button{
+                @include btn($height: 62px);
+            }
+
+            .btns{
+                @include btn($height: 62px, $bg: #005DB2, $color: #339DFF, $hover: #2479c9);
+                font-size: 35px;
+            }
+            
+            .acDel{
+                margin-top: 16px;
+                
+                .addition{
+                    padding-top: 14px;
+                }
+            }
+
+            .numLine{
+                margin-top: 18px;
+
+                button{
+                    font-weight: 500;
+                    font-size: 25px;
+
+                }
+                :nth-child(4){
+                    font-size: 35px;
+                }
+            }
+
+            .numLine2{
+                position: relative;
+
+                :nth-child(4){
+                    height: 96px;
+                    position: absolute;
+                    left: 245px;
+                    top: 10px;
+                }
+            }
+
+            .numLine3{
+                position: relative;
+
+                :nth-child(4){
+                    height: 96px;
+                    position: absolute;
+                    left: 245px;
+                    top: 50px;
+                }
+            }
+
+            .numLine4{
+
+                :first-child{
+                    width: 144px;
+                }
+            }
+        }
+
+    }
+}
