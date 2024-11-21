@@ -6,11 +6,18 @@ function App() {
 
   const handleBtn = (value) => {
     if(value === '='){
-      setInput(eval(input));
+      try {
+        setInput(eval(input).toString());
+      } catch (error) {
+        setInput("Error");
+      }
     }else if(value === 'AC'){
       setInput('');
     }else if(value === 'Del'){
-      setInput((prevInput) => prevInput.slice(0, -1));
+      setInput((prevInput) => {
+        if(typeof prevInput === 'string') return prevInput.slice(0, -1);
+        return '';
+      });
     }else{
       setInput((prevInput) => prevInput + value);
     }
@@ -22,7 +29,7 @@ function App() {
     { rowClass: 'numLine numLine2', values: [{ label: '4', className: '' }, { label: '5', className: '' }, { label: '6', className: '' }, { label: '+', className: 'btns' }] },
     { rowClass: 'numLine numLine3', values: [{ label: '1', className: '' }, { label: '2', className: '' }, { label: '3', className: '' }, { label: '=', className: 'btns' }] },
     { rowClass: 'numLine numLine4', values: [{ label: '0', className: '' }, { label: '.', className: '' }] }
-  ]
+  ];
 
   return (
     <div className="App">

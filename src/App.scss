@@ -23,6 +23,7 @@
 .App{
     display: flex;
     justify-content: center;
+    align-items: center;
     background: radial-gradient(circle at top right, rgba(0, 85, 255, 0.388), rgba(0, 0, 0, 0.9));
     background-color: #000;
     min-height: 100vh;
@@ -30,14 +31,13 @@
 
     .fatherDiv{
         display: flex;
+        align-items: end;
         flex-direction: column;
         gap: 78px;
-        width: 375px;
-        height: 100vh;
-        padding: 100px 34px 40px 34px;
+        width: 310px;
+        height: auto;
 
         .countedNums{
-            
             .answerNum{
                 width: 100%;
                 height: 80px;
@@ -59,6 +59,10 @@
             div{
                 display: flex;
                 gap: 20px;
+
+                @media(max-width: 420px){
+                    gap: 10px;
+                }
             }
 
             button{
